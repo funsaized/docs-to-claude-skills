@@ -48,6 +48,61 @@ npx docs-to-skills
 
 That's it. Re-run `npx docs-to-skills` anytime you add or edit a doc.
 
+## Running from source
+
+You don't need to install from npm — the tool has zero runtime dependencies,
+so a clone or a direct `npx` from GitHub is enough.
+
+### Option A: one-shot via npx (no clone)
+
+```bash
+npx github:funsaized/docs-to-claude-skills --cwd .
+```
+
+`npx` fetches the repo, runs the bin, and cleans up. Good for trying it out
+or wiring into CI without committing a dependency.
+
+### Option B: clone + run
+
+```bash
+git clone https://github.com/funsaized/docs-to-claude-skills.git
+cd docs-to-claude-skills
+node bin/docs-to-skills.mjs --help
+```
+
+Use the `--cwd` flag to target any other project from the clone:
+
+```bash
+node /path/to/docs-to-claude-skills/bin/docs-to-skills.mjs --cwd ~/my-project
+```
+
+This is handy when you're hacking on the tool itself and want to try changes
+against a real repo without publishing.
+
+### Option C: clone + npm link (global `docs-to-skills`)
+
+```bash
+git clone https://github.com/funsaized/docs-to-claude-skills.git
+cd docs-to-claude-skills
+npm link
+
+# now available globally, pointing at your clone
+cd ~/my-project
+docs-to-skills
+```
+
+Edits inside the clone are picked up immediately on the next invocation —
+no rebuild step (the source is plain ESM `.mjs`, no compile).
+
+### Running tests
+
+```bash
+npm test
+```
+
+15 tests under `test/`, all using Node's built-in test runner. No deps to
+install.
+
 ## Authoring a skill
 
 Drop a markdown file in `docs/` with YAML frontmatter:
