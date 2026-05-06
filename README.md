@@ -1,5 +1,10 @@
 # docs-to-claude-skills
 
+[![npm version](https://img.shields.io/npm/v/docs-to-claude-skills.svg)](https://www.npmjs.com/package/docs-to-claude-skills)
+[![npm downloads](https://img.shields.io/npm/dm/docs-to-claude-skills.svg)](https://www.npmjs.com/package/docs-to-claude-skills)
+[![license](https://img.shields.io/npm/l/docs-to-claude-skills.svg)](./LICENSE)
+[![node](https://img.shields.io/node/v/docs-to-claude-skills.svg)](https://nodejs.org)
+
 > One markdown file. Two AI agents. Zero duplication.
 
 Author your team's agent skills as plain markdown in `docs/`, and have them
@@ -32,6 +37,29 @@ content in `docs/` and let this tool wire up the symlinks. Your existing repo
 documentation *becomes* your skill library.
 
 ---
+
+## Install
+
+Published on npm: [`docs-to-claude-skills`](https://www.npmjs.com/package/docs-to-claude-skills).
+Zero runtime dependencies.
+
+```bash
+# project-local (recommended)
+npm install --save-dev docs-to-claude-skills
+
+# or with your package manager of choice
+pnpm add -D docs-to-claude-skills
+yarn add -D docs-to-claude-skills
+bun add -d docs-to-claude-skills
+
+# or one-shot, no install
+npx docs-to-claude-skills
+
+# or globally
+npm install -g docs-to-claude-skills
+```
+
+Requires Node.js ≥ 18.
 
 ## Quick start
 
