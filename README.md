@@ -354,7 +354,7 @@ just maintains those paths from a single source.
 ## Prior art / acknowledgments
 
 The single-source-of-truth pattern with symlink-into-docs is taken from the
-Tamagui [Takeout](https://github.com/tamagui/takeout2) starter kit's `tko
+Tamagui Takeout starter kit's `tko
 skills generate` command. This is a generalized, dependency-free
 re-implementation that also targets OpenAI Codex.
 
