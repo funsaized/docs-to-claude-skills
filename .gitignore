@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+*.log
+.env
+.env.local
+
+# Generated skills (these are produced from docs/ at runtime)
+.claude/skills/
+.agents/skills/

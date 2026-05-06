@@ -1,0 +1,51 @@
+{
+  "name": "docs-to-claude-skills",
+  "version": "0.1.0",
+  "description": "Generate Claude Code and OpenAI Codex skills from a single docs/ directory of markdown files with frontmatter.",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "codex",
+    "openai-codex",
+    "skills",
+    "docs",
+    "frontmatter",
+    "agent"
+  ],
+  "license": "MIT",
+  "author": "funsaized",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funsaized/docs-to-claude-skills.git"
+  },
+  "homepage": "https://github.com/funsaized/docs-to-claude-skills#readme",
+  "bugs": {
+    "url": "https://github.com/funsaized/docs-to-claude-skills/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "docs-to-skills": "./bin/docs-to-skills.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "example": "node bin/docs-to-skills.mjs generate --target both"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
