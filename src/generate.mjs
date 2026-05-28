@@ -154,15 +154,17 @@ function resolveDocsDir(cwd, docsDir) {
 
 function collectDocs(docsDir) {
   const out = []
-  for (const file of readdirSync(docsDir)) {
-    if (!file.endsWith('.md')) continue
-    const path = join(docsDir, file)
-    const stat = lstatSync(path)
-    if (!stat.isFile()) continue
+  for (const entry of readdirSync(docsDir, { withFileTypes: true })) {
+    const path = join(docsDir, entry.name)
+    if (entry.isDirectory()) {
+      out.push(...collectDocs(path))
+      continue
+    }
+    if (!entry.isFile() || !entry.name.endsWith('.md')) continue
     const content = readFileSync(path, 'utf8')
     out.push({
       path,
-      basename: file.replace(/\.md$/, ''),
+      basename: entry.name.replace(/\.md$/, ''),
       content,
       frontmatter: parseFrontmatter(content),
     })

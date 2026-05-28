@@ -8,7 +8,7 @@ import { generateSkills } from '../src/generate.mjs'
 import { TARGETS } from '../src/targets.mjs'
 import { c } from '../src/log.mjs'
 
-const HELP = `${c.bold('docs-to-skills')} - generate Claude Code & OpenAI Codex skills from docs/*.md
+const HELP = `${c.bold('docs-to-skills')} - generate Claude Code & OpenAI Codex skills from markdown files under docs/
 
 ${c.bold('USAGE')}
   docs-to-skills [command] [options]

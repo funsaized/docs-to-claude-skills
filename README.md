@@ -7,7 +7,7 @@
 
 > One markdown file. Two AI agents. Zero duplication.
 
-Author your team's agent skills as plain markdown in `docs/`, and have them
+Author your team's agent skills as plain markdown anywhere under `docs/`, and have them
 materialize as both [Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills)
 and [OpenAI Codex skills](https://developers.openai.com/codex/skills) — kept
 in sync automatically via symlinks.

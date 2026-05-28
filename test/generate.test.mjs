@@ -25,10 +25,12 @@ afterEach(() => {
 function writeDoc(name, frontmatter, body = 'hello\n') {
   const docsDir = join(dir, 'docs')
   mkdirSync(docsDir, { recursive: true })
+  const file = join(docsDir, `${name}.md`)
+  mkdirSync(dirname(file), { recursive: true })
   const fm = Object.entries(frontmatter)
     .map(([k, v]) => `${k}: ${v}`)
     .join('\n')
-  writeFileSync(join(docsDir, `${name}.md`), `---\n${fm}\n---\n${body}`)
+  writeFileSync(file, `---\n${fm}\n---\n${body}`)
 }
 
 test('generates symlinks for both targets', async () => {
@@ -45,6 +47,23 @@ test('generates symlinks for both targets', async () => {
     const link = readlinkSync(file)
     const resolved = resolve(dirname(file), link)
     assert.equal(resolved, join(dir, 'docs', 'alpha.md'))
+  }
+})
+
+test('generates skills from nested docs with frontmatter', async () => {
+  writeDoc('guides/beta', { name: 'beta-skill', description: 'use beta' })
+  const stats = await generateSkills({ cwd: dir, quiet: true })
+  assert.equal(stats.created, 2)
+  assert.equal(stats.skipped, 0)
+
+  for (const sub of ['.claude/skills', '.agents/skills']) {
+    const file = join(dir, sub, 'beta-skill', 'SKILL.md')
+    assert.ok(existsSync(file), `expected ${file} to exist`)
+    const stat = lstatSync(file)
+    assert.ok(stat.isSymbolicLink(), `expected ${file} to be a symlink`)
+    const link = readlinkSync(file)
+    const resolved = resolve(dirname(file), link)
+    assert.equal(resolved, join(dir, 'docs', 'guides', 'beta.md'))
   }
 })
 
