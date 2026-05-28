@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/npm/l/docs-to-claude-skills.svg)](./LICENSE)
 [![node](https://img.shields.io/node/v/docs-to-claude-skills.svg)](https://nodejs.org)
 
-> One markdown file. Two AI agents. Zero duplication.
+> One markdown file. Two AI agents. Zero dependencies. Zero duplication.
 
 Author your team's agent skills as plain markdown anywhere under `docs/`, and have them
 materialize as both [Claude Code skills](https://docs.claude.com/en/docs/claude-code/skills)
@@ -19,6 +19,13 @@ docs/database.md  ──┬──▶  .claude/skills/database/SKILL.md   (Claude
 
 Edit the doc once, both agents see the change. No duplicate copies, no
 "which version is current" confusion.
+
+Security-conscious by default:
+
+- **Zero runtime dependencies** — no dependency tree to audit, pin, or patch.
+- **Local-only execution** — reads markdown from your repo and writes symlinks
+  or copies under `.claude/skills/` and `.agents/skills/`.
+- **No network calls, telemetry, or remote services** in the generator itself.
 
 ---
 

@@ -1,7 +1,7 @@
 {
   "name": "docs-to-claude-skills",
   "version": "1.0.0",
-  "description": "Generate Claude Code and OpenAI Codex skills from a single docs/ directory of markdown files with frontmatter.",
+  "description": "Zero-dependency, local-only generator for Claude Code and OpenAI Codex skills from markdown docs.",
   "keywords": [
     "claude",
     "claude-code",
