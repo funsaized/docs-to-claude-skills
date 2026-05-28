@@ -1,6 +1,6 @@
 {
   "name": "docs-to-claude-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zero-dependency, local-only generator for Claude Code and OpenAI Codex skills from markdown docs.",
   "keywords": [
     "claude",
